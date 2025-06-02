@@ -24,7 +24,7 @@
   },
   "include": [
     "test/**/*.ts"
-  ],
+, "example.test.ts"  ],
   "exclude": [
     "node_modules",
     "dist"
