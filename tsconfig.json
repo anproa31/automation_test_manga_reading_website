@@ -17,6 +17,7 @@
       "@helpers/*": ["test/helpers/*"],
       "@data/*": ["test/data/*"]
     },
+    
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
