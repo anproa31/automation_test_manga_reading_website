@@ -3,15 +3,24 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "compile": "tsc",
+    "test": "testcafe firefox test/specs/**/*.ts",
+    "test:compile": "tsc && testcafe firefox dist/specs/**/*.js",
+    "test:headless": "testcafe firefox:headless test/specs/**/*.ts",
+    "test:watch": "testcafe -L firefox test/specs/**/*.ts"
   },
+
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
-    "testcafe": "^3.7.2",
+    "testcafe": "^3.7.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.29",
     "typescript": "^5.8.3"
   }
 }
