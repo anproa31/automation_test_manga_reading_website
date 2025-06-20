@@ -14,6 +14,7 @@ import {
     SQL_INJECTION_STRING,
     ACCOUNT_LOCKED_ERROR
 } from '../data/testData';
+import { Selector, ClientFunction } from 'testcafe';
 
 const loginPage = new LoginPage();
 
@@ -108,6 +109,24 @@ test('Login button should show loading spinner on click', async (t) => {
 
 
     await t.expect(loginPage.displayName.withText(VALID_USERNAME).exists).ok();
+});
+
+test('Tab order should be correct on the login form', async (t) => {
+
+    await t
+        .click(loginPage.loginLink)
+        .click(loginPage.usernameInput);
+
+
+    const getActiveElementId = ClientFunction(() => document.activeElement ? document.activeElement.id : '');
+    const getActiveElementText = ClientFunction(() => document.activeElement ? document.activeElement.textContent : '');
+
+    await t.pressKey('tab');
+    await t.expect(getActiveElementId()).eql('pwd', 'Tabbing from username should focus on the password field.');
+
+
+    await t.pressKey('tab');
+    await t.expect(getActiveElementText()).contains('Log In', 'Tabbing from password should focus on the Log In button.');
 });
 
 test('Multiple failed login attempts should lock account', async (t) => {
