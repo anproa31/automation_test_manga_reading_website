@@ -9,3 +9,4 @@ export const INVALID_USERNAME = 'invalid_username';
 export const INVALID_PASSWORD = 'invalid_password';
 export const INVALID_CREDENTIALS_ERROR = 'Username or password incorrect!';
 export const VALID_EMAIL = 'antoeta31@gmail.com';
+export const SQL_INJECTION_STRING = "' OR '1'='1' --";

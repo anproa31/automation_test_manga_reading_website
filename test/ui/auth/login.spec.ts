@@ -10,7 +10,8 @@ import {
     INVALID_USERNAME,
     INVALID_PASSWORD,
     INVALID_CREDENTIALS_ERROR,
-    VALID_EMAIL
+    VALID_EMAIL,
+    SQL_INJECTION_STRING
 } from '../data/testData';
 
 const loginPage = new LoginPage();
@@ -77,6 +78,18 @@ test('Login with invalid password', async (t) => {
 
 test('Login with email instead of username should fail', async (t) => {
     await loginPage.login(VALID_EMAIL, VALID_PASSWORD);
+
+    await t.expect(loginPage.invalidCredentialsError.withText(INVALID_CREDENTIALS_ERROR).exists).ok();
+});
+
+test('Login with SQL injection attempt in username', async (t) => {
+    await loginPage.login(SQL_INJECTION_STRING, VALID_PASSWORD);
+
+    await t.expect(loginPage.invalidCredentialsError.withText(INVALID_CREDENTIALS_ERROR).exists).ok();
+});
+
+test('Login with SQL injection attempt in password', async (t) => {
+    await loginPage.login(VALID_USERNAME, SQL_INJECTION_STRING);
 
     await t.expect(loginPage.invalidCredentialsError.withText(INVALID_CREDENTIALS_ERROR).exists).ok();
 });
