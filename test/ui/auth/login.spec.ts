@@ -95,6 +95,21 @@ test('Login with SQL injection attempt in password', async (t) => {
     await t.expect(loginPage.invalidCredentialsError.withText(INVALID_CREDENTIALS_ERROR).exists).ok();
 });
 
+test('Login button should show loading spinner on click', async (t) => {
+    await t
+        .click(loginPage.loginLink)
+        .typeText(loginPage.usernameInput, VALID_USERNAME)
+        .typeText(loginPage.passwordInput, VALID_PASSWORD)
+        .click(loginPage.submitButton)
+
+
+    await t.expect(loginPage.loadingSpinner.exists)
+        .ok('Loading spinner should be visible immediately after clicking login.');
+
+
+    await t.expect(loginPage.displayName.withText(VALID_USERNAME).exists).ok();
+});
+
 test('Multiple failed login attempts should lock account', async (t) => {
 
     await t.click(loginPage.loginLink);
