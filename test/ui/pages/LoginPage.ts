@@ -6,6 +6,7 @@ export default class LoginPage {
     passwordInput: Selector;
     submitButton: Selector;
     displayName: Selector;
+    usernameError: Selector;
 
     constructor() {
         this.loginLink = Selector('a[data-form="signin"]').withText('Log In');
@@ -13,6 +14,7 @@ export default class LoginPage {
         this.passwordInput = Selector('#pwd');
         this.submitButton = Selector('#modal_form button').withText('Log In');
         this.displayName = Selector('b.display_name');
+        this.usernameError = Selector('#user_login-error');
     }
 
     async login(username: string, password: string) {
