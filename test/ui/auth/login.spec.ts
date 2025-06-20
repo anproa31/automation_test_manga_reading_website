@@ -9,7 +9,8 @@ import {
     PASSWORD_REQUIRED_ERROR,
     INVALID_USERNAME,
     INVALID_PASSWORD,
-    INVALID_CREDENTIALS_ERROR
+    INVALID_CREDENTIALS_ERROR,
+    VALID_EMAIL
 } from '../data/testData';
 
 const loginPage = new LoginPage();
@@ -70,6 +71,12 @@ test('Login with invalid username', async (t) => {
 
 test('Login with invalid password', async (t) => {
     await loginPage.login(VALID_USERNAME, INVALID_PASSWORD);
+
+    await t.expect(loginPage.invalidCredentialsError.withText(INVALID_CREDENTIALS_ERROR).exists).ok();
+});
+
+test('Login with email instead of username should fail', async (t) => {
+    await loginPage.login(VALID_EMAIL, VALID_PASSWORD);
 
     await t.expect(loginPage.invalidCredentialsError.withText(INVALID_CREDENTIALS_ERROR).exists).ok();
 });
