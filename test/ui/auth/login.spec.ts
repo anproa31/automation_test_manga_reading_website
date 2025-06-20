@@ -1,22 +1,15 @@
-import { Selector } from "testcafe";
+import LoginPage from '../pages/LoginPage';
+
+const loginPage = new LoginPage();
 
 fixture`Login - Mangakatana`
     .page`https://mangakatana.com/`;
 
 test('Login with valid credentials', async (t) => {
-    const loginBtn = Selector('a[data-form="signin"]').withText('Log In');
-    const usernameInput = Selector('#user_login');
-    const passwordInput = Selector('#pwd');
-    const submitLoginBtn = Selector('#modal_form button').withText('Log In');
+    const username = 'auto_test';
+    
+    await loginPage.login(username, 'test@123');
 
-    const displayName = Selector('b.display_name').withText('auto_test');
-
-    await t.click(loginBtn);
-    await t.typeText(usernameInput, 'auto_test');
-    await t.typeText(passwordInput, 'test@123');
-    await t.click(submitLoginBtn);
-
-
-    await t.expect(displayName.exists).ok();
+    await t.expect(loginPage.displayName.withText(username).exists).ok();
 });
 
