@@ -9,6 +9,7 @@ export default class LoginPage {
     usernameError: Selector;
     passwordError: Selector;
     invalidCredentialsError: Selector;
+    accountLockedError: Selector;
 
     constructor() {
         this.loginLink = Selector('a[data-form="signin"]').withText('Log In');
@@ -19,6 +20,7 @@ export default class LoginPage {
         this.usernameError = Selector('#user_login-error');
         this.passwordError = Selector('#pwd-error');
         this.invalidCredentialsError = Selector('div.uk-text-danger');
+        this.accountLockedError = Selector('div.uk-alert-danger');
     }
 
     async login(username: string, password: string) {

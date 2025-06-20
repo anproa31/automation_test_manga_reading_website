@@ -11,7 +11,8 @@ import {
     INVALID_PASSWORD,
     INVALID_CREDENTIALS_ERROR,
     VALID_EMAIL,
-    SQL_INJECTION_STRING
+    SQL_INJECTION_STRING,
+    ACCOUNT_LOCKED_ERROR
 } from '../data/testData';
 
 const loginPage = new LoginPage();
@@ -92,4 +93,19 @@ test('Login with SQL injection attempt in password', async (t) => {
     await loginPage.login(VALID_USERNAME, SQL_INJECTION_STRING);
 
     await t.expect(loginPage.invalidCredentialsError.withText(INVALID_CREDENTIALS_ERROR).exists).ok();
+});
+
+test('Multiple failed login attempts should lock account', async (t) => {
+
+    await t.click(loginPage.loginLink);
+
+    for (let i = 0; i < 10; i++) {
+        await t
+            .typeText(loginPage.usernameInput, VALID_USERNAME, { replace: true })
+            .typeText(loginPage.passwordInput, INVALID_PASSWORD, { replace: true })
+            .click(loginPage.submitButton);
+    }
+
+    await t.expect(loginPage.accountLockedError.withText(ACCOUNT_LOCKED_ERROR).exists)
+        .ok('The account was not locked after 10 failed login attempts.');
 });
