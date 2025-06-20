@@ -124,3 +124,15 @@ test('Multiple failed login attempts should lock account', async (t) => {
     await t.expect(loginPage.accountLockedError.withText(ACCOUNT_LOCKED_ERROR).exists)
         .ok('The account was not locked after 10 failed login attempts.');
 });
+
+test('Login session should persist after page refresh', async (t) => {
+
+    await loginPage.login(VALID_USERNAME, VALID_PASSWORD);
+    await t.expect(loginPage.displayName.withText(VALID_USERNAME).exists).ok('Login failed before refresh.');
+
+
+    await t.eval(() => location.reload());
+
+
+    await t.expect(loginPage.displayName.withText(VALID_USERNAME).exists).ok('User was logged out after refresh.');
+});
