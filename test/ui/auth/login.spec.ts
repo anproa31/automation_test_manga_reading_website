@@ -5,7 +5,8 @@ import {
     USERNAME_WITH_SPACES,
     PASSWORD_WITH_SPACES,
     UPPERCASE_USERNAME,
-    USERNAME_REQUIRED_ERROR
+    USERNAME_REQUIRED_ERROR,
+    PASSWORD_REQUIRED_ERROR
 } from '../data/testData';
 
 const loginPage = new LoginPage();
@@ -40,3 +41,20 @@ test('Login with empty username', async (t) => {
     await t.expect(loginPage.usernameError.withText(USERNAME_REQUIRED_ERROR).exists).ok();
 });
 
+test('Login with empty password', async (t) => {
+    await t
+        .click(loginPage.loginLink)
+        .typeText(loginPage.usernameInput, VALID_USERNAME)
+        .click(loginPage.submitButton);
+
+    await t.expect(loginPage.passwordError.withText(PASSWORD_REQUIRED_ERROR).exists).ok();
+});
+
+test('Empty username and password', async (t) => {
+    await t
+        .click(loginPage.loginLink)
+        .click(loginPage.submitButton);
+
+    await t.expect(loginPage.usernameError.withText(USERNAME_REQUIRED_ERROR).exists).ok();
+    await t.expect(loginPage.passwordError.withText(PASSWORD_REQUIRED_ERROR).exists).ok();
+});
