@@ -6,7 +6,10 @@ import {
     PASSWORD_WITH_SPACES,
     UPPERCASE_USERNAME,
     USERNAME_REQUIRED_ERROR,
-    PASSWORD_REQUIRED_ERROR
+    PASSWORD_REQUIRED_ERROR,
+    INVALID_USERNAME,
+    INVALID_PASSWORD,
+    INVALID_CREDENTIALS_ERROR
 } from '../data/testData';
 
 const loginPage = new LoginPage();
@@ -57,4 +60,16 @@ test('Empty username and password', async (t) => {
 
     await t.expect(loginPage.usernameError.withText(USERNAME_REQUIRED_ERROR).exists).ok();
     await t.expect(loginPage.passwordError.withText(PASSWORD_REQUIRED_ERROR).exists).ok();
+});
+
+test('Login with invalid username', async (t) => {
+    await loginPage.login(INVALID_USERNAME, VALID_PASSWORD);
+
+    await t.expect(loginPage.invalidCredentialsError.withText(INVALID_CREDENTIALS_ERROR).exists).ok();
+});
+
+test('Login with invalid password', async (t) => {
+    await loginPage.login(VALID_USERNAME, INVALID_PASSWORD);
+
+    await t.expect(loginPage.invalidCredentialsError.withText(INVALID_CREDENTIALS_ERROR).exists).ok();
 });
