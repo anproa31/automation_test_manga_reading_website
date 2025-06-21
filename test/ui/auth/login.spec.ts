@@ -28,6 +28,11 @@ const rememberedUser = Role('https://mangakatana.com/', async t => {
 
 }, { preserveUrl: true });
 
+const standardUser = Role('https://mangakatana.com/', async t => {
+    await loginPage.login(VALID_USERNAME, VALID_PASSWORD, false);
+    await t.expect(loginPage.displayName.withText(VALID_USERNAME).exists).ok();
+}, { preserveUrl: true });
+
 fixture`Login - Mangakatana`
     .page`https://mangakatana.com/`;
 
@@ -173,3 +178,16 @@ test('"Remember Me" functionality should keep user logged in across sessions', a
 
     await t.expect(loginPage.displayName.withText(VALID_USERNAME).exists).ok('User was not logged in automatically with "Remember Me" cookie.');
 });
+
+test('Login session should NOT persist after browser close without "Remember Me"', async t => {
+
+    await t.useRole(standardUser);
+
+
+    await t.useRole(Role.anonymous());
+
+
+    await t.expect(loginPage.loginLink.exists).ok('User should be logged out after a simulated browser restart.');
+});
+
+
