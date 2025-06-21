@@ -66,6 +66,7 @@ export class CucumberHtmlReporter {
         reportSuiteAsScenarios: true,
         scenarioTimestamp: true,
         launchReport: true,
+        brandTitle: 'TestCafe - MangaKatana',
         metadata: {
             "App Version": "1.0.0",
             "Test Environment": "STAGING",
