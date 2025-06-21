@@ -11,6 +11,7 @@ export default class LoginPage {
     invalidCredentialsError: Selector;
     accountLockedError: Selector;
     loadingSpinner: Selector;
+    rememberMeCheckbox: Selector;
 
     constructor() {
         this.loginLink = Selector('a[data-form="signin"]').withText('Log In');
@@ -23,13 +24,19 @@ export default class LoginPage {
         this.invalidCredentialsError = Selector('div.uk-text-danger');
         this.accountLockedError = Selector('div.uk-alert-danger');
         this.loadingSpinner = Selector('i.uk-icon-spinner.uk-icon-spin');
+        this.rememberMeCheckbox = Selector('label[for="remember"]');
     }
 
-    async login(username: string, password: string) {
+    async login(username: string, password: string, rememberMe = false) {
         await t
             .click(this.loginLink)
             .typeText(this.usernameInput, username)
-            .typeText(this.passwordInput, password)
-            .click(this.submitButton);
+            .typeText(this.passwordInput, password);
+
+        if (rememberMe) {
+            await t.click(this.rememberMeCheckbox);
+        }
+
+        await t.click(this.submitButton);
     }
 } 

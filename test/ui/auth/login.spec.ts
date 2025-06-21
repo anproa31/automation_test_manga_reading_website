@@ -14,9 +14,19 @@ import {
     SQL_INJECTION_STRING,
     ACCOUNT_LOCKED_ERROR
 } from '../data/testData';
-import { Selector, ClientFunction } from 'testcafe';
+import { Selector, ClientFunction, Role } from 'testcafe';
 
 const loginPage = new LoginPage();
+
+const rememberedUser = Role('https://mangakatana.com/', async t => {
+    await loginPage.login(VALID_USERNAME, VALID_PASSWORD, true);
+    await t.expect(loginPage.displayName.withText(VALID_USERNAME).exists).ok();
+
+    const cookies = await t.getCookies();
+    const sgnTokenCookie = cookies.find(cookie => cookie.name === 'sgn_token');
+    await t.expect(sgnTokenCookie).ok('The sgn_token cookie should be set when "Remember Me" is checked.');
+
+}, { preserveUrl: true });
 
 fixture`Login - Mangakatana`
     .page`https://mangakatana.com/`;
@@ -154,4 +164,12 @@ test('Login session should persist after page refresh', async (t) => {
 
 
     await t.expect(loginPage.displayName.withText(VALID_USERNAME).exists).ok('User was logged out after refresh.');
+});
+
+test('"Remember Me" functionality should keep user logged in across sessions', async t => {
+
+    await t.useRole(rememberedUser);
+
+
+    await t.expect(loginPage.displayName.withText(VALID_USERNAME).exists).ok('User was not logged in automatically with "Remember Me" cookie.');
 });
