@@ -1,0 +1,428 @@
+[
+  {
+    "name": "Login - Mangakatana",
+    "keyword": "Feature",
+    "line": 1,
+    "id": "login---mangakatana",
+    "tags": [],
+    "uri": "D:\\developer\\repos\\automation_test_manga_reading_website\\test\\ui\\auth\\login.spec.ts",
+    "elements": [
+      {
+        "id": "login-with-valid-credentials",
+        "keyword": "Scenario",
+        "name": "Login with valid credentials",
+        "line": 1,
+        "description": "",
+        "type": "scenario",
+        "tags": [],
+        "steps": [
+          {
+            "keyword": "Then",
+            "name": "Test should pass",
+            "line": 1,
+            "match": {
+              "location": "test/step-definitions/login.steps.ts"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 10078
+            }
+          }
+        ]
+      },
+      {
+        "id": "login-with-credentials-containing-leading-trailing-spaces",
+        "keyword": "Scenario",
+        "name": "Login with credentials containing leading/trailing spaces",
+        "line": 1,
+        "description": "",
+        "type": "scenario",
+        "tags": [],
+        "steps": [
+          {
+            "keyword": "Then",
+            "name": "Test should pass",
+            "line": 1,
+            "match": {
+              "location": "test/step-definitions/login.steps.ts"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5649
+            }
+          }
+        ]
+      },
+      {
+        "id": "login-with-uppercase-username-and-valid-password",
+        "keyword": "Scenario",
+        "name": "Login with uppercase username and valid password",
+        "line": 1,
+        "description": "",
+        "type": "scenario",
+        "tags": [],
+        "steps": [
+          {
+            "keyword": "Then",
+            "name": "Test should pass",
+            "line": 1,
+            "match": {
+              "location": "test/step-definitions/login.steps.ts"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5855
+            }
+          }
+        ]
+      },
+      {
+        "id": "login-with-empty-username",
+        "keyword": "Scenario",
+        "name": "Login with empty username",
+        "line": 1,
+        "description": "",
+        "type": "scenario",
+        "tags": [],
+        "steps": [
+          {
+            "keyword": "Then",
+            "name": "Test should pass",
+            "line": 1,
+            "match": {
+              "location": "test/step-definitions/login.steps.ts"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3876
+            }
+          }
+        ]
+      },
+      {
+        "id": "login-with-empty-password",
+        "keyword": "Scenario",
+        "name": "Login with empty password",
+        "line": 1,
+        "description": "",
+        "type": "scenario",
+        "tags": [],
+        "steps": [
+          {
+            "keyword": "Then",
+            "name": "Test should pass",
+            "line": 1,
+            "match": {
+              "location": "test/step-definitions/login.steps.ts"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3497
+            }
+          }
+        ]
+      },
+      {
+        "id": "empty-username-and-password",
+        "keyword": "Scenario",
+        "name": "Empty username and password",
+        "line": 1,
+        "description": "",
+        "type": "scenario",
+        "tags": [],
+        "steps": [
+          {
+            "keyword": "Then",
+            "name": "Test should pass",
+            "line": 1,
+            "match": {
+              "location": "test/step-definitions/login.steps.ts"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3127
+            }
+          }
+        ]
+      },
+      {
+        "id": "login-with-invalid-username",
+        "keyword": "Scenario",
+        "name": "Login with invalid username",
+        "line": 1,
+        "description": "",
+        "type": "scenario",
+        "tags": [],
+        "steps": [
+          {
+            "keyword": "Then",
+            "name": "Test should pass",
+            "line": 1,
+            "match": {
+              "location": "test/step-definitions/login.steps.ts"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5239
+            }
+          }
+        ]
+      },
+      {
+        "id": "login-with-invalid-password",
+        "keyword": "Scenario",
+        "name": "Login with invalid password",
+        "line": 1,
+        "description": "",
+        "type": "scenario",
+        "tags": [],
+        "steps": [
+          {
+            "keyword": "Then",
+            "name": "Test should pass",
+            "line": 1,
+            "match": {
+              "location": "test/step-definitions/login.steps.ts"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 4722
+            }
+          }
+        ]
+      },
+      {
+        "id": "login-with-email-instead-of-username-should-fail",
+        "keyword": "Scenario",
+        "name": "Login with email instead of username should fail",
+        "line": 1,
+        "description": "",
+        "type": "scenario",
+        "tags": [],
+        "steps": [
+          {
+            "keyword": "Then",
+            "name": "Test should pass",
+            "line": 1,
+            "match": {
+              "location": "test/step-definitions/login.steps.ts"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 4591
+            }
+          }
+        ]
+      },
+      {
+        "id": "login-with-sql-injection-attempt-in-username",
+        "keyword": "Scenario",
+        "name": "Login with SQL injection attempt in username",
+        "line": 1,
+        "description": "",
+        "type": "scenario",
+        "tags": [],
+        "steps": [
+          {
+            "keyword": "Then",
+            "name": "Test should pass",
+            "line": 1,
+            "match": {
+              "location": "test/step-definitions/login.steps.ts"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 4610
+            }
+          }
+        ]
+      },
+      {
+        "id": "login-with-sql-injection-attempt-in-password",
+        "keyword": "Scenario",
+        "name": "Login with SQL injection attempt in password",
+        "line": 1,
+        "description": "",
+        "type": "scenario",
+        "tags": [],
+        "steps": [
+          {
+            "keyword": "Then",
+            "name": "Test should pass",
+            "line": 1,
+            "match": {
+              "location": "test/step-definitions/login.steps.ts"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 4669
+            }
+          }
+        ]
+      },
+      {
+        "id": "login-button-should-show-loading-spinner-on-click",
+        "keyword": "Scenario",
+        "name": "Login button should show loading spinner on click",
+        "line": 1,
+        "description": "",
+        "type": "scenario",
+        "tags": [],
+        "steps": [
+          {
+            "keyword": "Then",
+            "name": "Test should pass",
+            "line": 1,
+            "match": {
+              "location": "test/step-definitions/login.steps.ts"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5484
+            }
+          }
+        ]
+      },
+      {
+        "id": "tab-order-should-be-correct-on-the-login-form",
+        "keyword": "Scenario",
+        "name": "Tab order should be correct on the login form",
+        "line": 1,
+        "description": "",
+        "type": "scenario",
+        "tags": [],
+        "steps": [
+          {
+            "keyword": "Then",
+            "name": "Test should pass",
+            "line": 1,
+            "match": {
+              "location": "test/step-definitions/login.steps.ts"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 7177,
+              "error_message": "AssertionError: Tabbing from password should focus on the Log In button.: expected 'Forgot password?' to include 'Log In'\n\nBrowser: Firefox 139.0 / Windows 11\n\n   139 |    await t.pressKey('tab');\n   140 |    await t.expect(getActiveElementId()).eql('pwd', 'Tabbing from username should focus on the password field.');\n   141 |\n   142 |\n   143 |    await t.pressKey('tab');\n > 144 |    await t.expect(getActiveElementText()).contains('Log In', 'Tabbing from password should focus on the Log In button.');\n   145 |});\n   146 |\n   147 |test('Multiple failed login attempts should lock account', async (t) => {\n   148 |\n   149 |    await t.click(loginPage.loginLink);\n\n   at <anonymous> (D:\\developer\\repos\\automation_test_manga_reading_website\\test\\ui\\auth\\login.spec.ts:144:44)\n   at fulfilled (D:\\developer\\repos\\automation_test_manga_reading_website\\test\\ui\\auth\\login.spec.ts:5:58)"
+            }
+          }
+        ]
+      },
+      {
+        "id": "multiple-failed-login-attempts-should-lock-account",
+        "keyword": "Scenario",
+        "name": "Multiple failed login attempts should lock account",
+        "line": 1,
+        "description": "",
+        "type": "scenario",
+        "tags": [],
+        "steps": [
+          {
+            "keyword": "Then",
+            "name": "Test should pass",
+            "line": 1,
+            "match": {
+              "location": "test/step-definitions/login.steps.ts"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 26778,
+              "error_message": "AssertionError: The account was not locked after 10 failed login attempts.: expected false to be truthy\n\nBrowser: Firefox 139.0 / Windows 11\n\n   154 |            .typeText(loginPage.passwordInput, INVALID_PASSWORD, { replace: true })\n   155 |            .click(loginPage.submitButton);\n   156 |    }\n   157 |\n   158 |    await t.expect(loginPage.accountLockedError.withText(ACCOUNT_LOCKED_ERROR).exists)\n > 159 |        .ok('The account was not locked after 10 failed login attempts.');\n   160 |});\n   161 |\n   162 |test('Login session should persist after page refresh', async (t) => {\n   163 |\n   164 |    await loginPage.login(VALID_USERNAME, VALID_PASSWORD);\n\n   at <anonymous> (D:\\developer\\repos\\automation_test_manga_reading_website\\test\\ui\\auth\\login.spec.ts:159:10)\n   at fulfilled (D:\\developer\\repos\\automation_test_manga_reading_website\\test\\ui\\auth\\login.spec.ts:5:58)"
+            }
+          }
+        ]
+      },
+      {
+        "id": "login-session-should-persist-after-page-refresh",
+        "keyword": "Scenario",
+        "name": "Login session should persist after page refresh",
+        "line": 1,
+        "description": "",
+        "type": "scenario",
+        "tags": [],
+        "steps": [
+          {
+            "keyword": "Then",
+            "name": "Test should pass",
+            "line": 1,
+            "match": {
+              "location": "test/step-definitions/login.steps.ts"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6859
+            }
+          }
+        ]
+      },
+      {
+        "id": "-remember-me--functionality-should-keep-user-logged-in-across-sessions",
+        "keyword": "Scenario",
+        "name": "\"Remember Me\" functionality should keep user logged in across sessions",
+        "line": 1,
+        "description": "",
+        "type": "scenario",
+        "tags": [],
+        "steps": [
+          {
+            "keyword": "Then",
+            "name": "Test should pass",
+            "line": 1,
+            "match": {
+              "location": "test/step-definitions/login.steps.ts"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 7796
+            }
+          }
+        ]
+      },
+      {
+        "id": "login-session-should-not-persist-after-browser-close-without--remember-me-",
+        "keyword": "Scenario",
+        "name": "Login session should NOT persist after browser close without \"Remember Me\"",
+        "line": 1,
+        "description": "",
+        "type": "scenario",
+        "tags": [],
+        "steps": [
+          {
+            "keyword": "Then",
+            "name": "Test should pass",
+            "line": 1,
+            "match": {
+              "location": "test/step-definitions/login.steps.ts"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 9268
+            }
+          }
+        ]
+      },
+      {
+        "id": "cursor-should-change-to-text-over-input-fields",
+        "keyword": "Scenario",
+        "name": "Cursor should change to text over input fields",
+        "line": 1,
+        "description": "",
+        "type": "scenario",
+        "tags": [],
+        "steps": [
+          {
+            "keyword": "Then",
+            "name": "Test should pass",
+            "line": 1,
+            "match": {
+              "location": "test/step-definitions/login.steps.ts"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 4229
+            }
+          }
+        ]
+      }
+    ]
+  }
+]
