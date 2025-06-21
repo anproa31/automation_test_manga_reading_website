@@ -1,0 +1,186 @@
+{
+  "startTime": "2025-06-21T01:23:31.954Z",
+  "endTime": "2025-06-21T01:25:36.532Z",
+  "userAgents": [
+    "Firefox 139.0 / Windows 11"
+  ],
+  "passed": 16,
+  "total": 18,
+  "skipped": 0,
+  "fixtures": [
+    {
+      "name": "Login - Mangakatana",
+      "path": "D:\\developer\\repos\\automation_test_manga_reading_website\\test\\ui\\auth\\login.spec.ts",
+      "meta": {},
+      "tests": [
+        {
+          "name": "Login with valid credentials",
+          "meta": {},
+          "errs": [],
+          "durationMs": 10078,
+          "unstable": false,
+          "screenshotPath": null,
+          "skipped": false
+        },
+        {
+          "name": "Login with credentials containing leading/trailing spaces",
+          "meta": {},
+          "errs": [],
+          "durationMs": 5649,
+          "unstable": false,
+          "screenshotPath": null,
+          "skipped": false
+        },
+        {
+          "name": "Login with uppercase username and valid password",
+          "meta": {},
+          "errs": [],
+          "durationMs": 5855,
+          "unstable": false,
+          "screenshotPath": null,
+          "skipped": false
+        },
+        {
+          "name": "Login with empty username",
+          "meta": {},
+          "errs": [],
+          "durationMs": 3876,
+          "unstable": false,
+          "screenshotPath": null,
+          "skipped": false
+        },
+        {
+          "name": "Login with empty password",
+          "meta": {},
+          "errs": [],
+          "durationMs": 3497,
+          "unstable": false,
+          "screenshotPath": null,
+          "skipped": false
+        },
+        {
+          "name": "Empty username and password",
+          "meta": {},
+          "errs": [],
+          "durationMs": 3127,
+          "unstable": false,
+          "screenshotPath": null,
+          "skipped": false
+        },
+        {
+          "name": "Login with invalid username",
+          "meta": {},
+          "errs": [],
+          "durationMs": 5239,
+          "unstable": false,
+          "screenshotPath": null,
+          "skipped": false
+        },
+        {
+          "name": "Login with invalid password",
+          "meta": {},
+          "errs": [],
+          "durationMs": 4722,
+          "unstable": false,
+          "screenshotPath": null,
+          "skipped": false
+        },
+        {
+          "name": "Login with email instead of username should fail",
+          "meta": {},
+          "errs": [],
+          "durationMs": 4591,
+          "unstable": false,
+          "screenshotPath": null,
+          "skipped": false
+        },
+        {
+          "name": "Login with SQL injection attempt in username",
+          "meta": {},
+          "errs": [],
+          "durationMs": 4610,
+          "unstable": false,
+          "screenshotPath": null,
+          "skipped": false
+        },
+        {
+          "name": "Login with SQL injection attempt in password",
+          "meta": {},
+          "errs": [],
+          "durationMs": 4669,
+          "unstable": false,
+          "screenshotPath": null,
+          "skipped": false
+        },
+        {
+          "name": "Login button should show loading spinner on click",
+          "meta": {},
+          "errs": [],
+          "durationMs": 5484,
+          "unstable": false,
+          "screenshotPath": null,
+          "skipped": false
+        },
+        {
+          "name": "Tab order should be correct on the login form",
+          "meta": {},
+          "errs": [
+            "AssertionError: Tabbing from password should focus on the Log In button.: expected 'Forgot password?' to include 'Log In'\n\nBrowser: Firefox 139.0 / Windows 11\n\n   139 |    await t.pressKey('tab');\n   140 |    await t.expect(getActiveElementId()).eql('pwd', 'Tabbing from username should focus on the password field.');\n   141 |\n   142 |\n   143 |    await t.pressKey('tab');\n > 144 |    await t.expect(getActiveElementText()).contains('Log In', 'Tabbing from password should focus on the Log In button.');\n   145 |});\n   146 |\n   147 |test('Multiple failed login attempts should lock account', async (t) => {\n   148 |\n   149 |    await t.click(loginPage.loginLink);\n\n   at <anonymous> (D:\\developer\\repos\\automation_test_manga_reading_website\\test\\ui\\auth\\login.spec.ts:144:44)\n   at fulfilled (D:\\developer\\repos\\automation_test_manga_reading_website\\test\\ui\\auth\\login.spec.ts:5:58)"
+          ],
+          "durationMs": 7177,
+          "unstable": false,
+          "screenshotPath": null,
+          "skipped": false
+        },
+        {
+          "name": "Multiple failed login attempts should lock account",
+          "meta": {},
+          "errs": [
+            "AssertionError: The account was not locked after 10 failed login attempts.: expected false to be truthy\n\nBrowser: Firefox 139.0 / Windows 11\n\n   154 |            .typeText(loginPage.passwordInput, INVALID_PASSWORD, { replace: true })\n   155 |            .click(loginPage.submitButton);\n   156 |    }\n   157 |\n   158 |    await t.expect(loginPage.accountLockedError.withText(ACCOUNT_LOCKED_ERROR).exists)\n > 159 |        .ok('The account was not locked after 10 failed login attempts.');\n   160 |});\n   161 |\n   162 |test('Login session should persist after page refresh', async (t) => {\n   163 |\n   164 |    await loginPage.login(VALID_USERNAME, VALID_PASSWORD);\n\n   at <anonymous> (D:\\developer\\repos\\automation_test_manga_reading_website\\test\\ui\\auth\\login.spec.ts:159:10)\n   at fulfilled (D:\\developer\\repos\\automation_test_manga_reading_website\\test\\ui\\auth\\login.spec.ts:5:58)"
+          ],
+          "durationMs": 26778,
+          "unstable": false,
+          "screenshotPath": null,
+          "skipped": false
+        },
+        {
+          "name": "Login session should persist after page refresh",
+          "meta": {},
+          "errs": [],
+          "durationMs": 6859,
+          "unstable": false,
+          "screenshotPath": null,
+          "skipped": false
+        },
+        {
+          "name": "\"Remember Me\" functionality should keep user logged in across sessions",
+          "meta": {},
+          "errs": [],
+          "durationMs": 7796,
+          "unstable": false,
+          "screenshotPath": null,
+          "skipped": false
+        },
+        {
+          "name": "Login session should NOT persist after browser close without \"Remember Me\"",
+          "meta": {},
+          "errs": [],
+          "durationMs": 9268,
+          "unstable": false,
+          "screenshotPath": null,
+          "skipped": false
+        },
+        {
+          "name": "Cursor should change to text over input fields",
+          "meta": {},
+          "errs": [],
+          "durationMs": 4229,
+          "unstable": false,
+          "screenshotPath": null,
+          "skipped": false
+        }
+      ]
+    }
+  ],
+  "warnings": []
+}
