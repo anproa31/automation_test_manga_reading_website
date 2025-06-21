@@ -190,4 +190,24 @@ test('Login session should NOT persist after browser close without "Remember Me"
     await t.expect(loginPage.loginLink.exists).ok('User should be logged out after a simulated browser restart.');
 });
 
+test('Cursor should change to text over input fields', async (t) => {
+    await t.click(loginPage.loginLink);
+
+
+    await t.hover(loginPage.usernameInput);
+    await t.expect(loginPage.usernameInput.getStyleProperty('cursor')).eql('text');
+
+
+    await t.hover(loginPage.passwordInput);
+    await t.expect(loginPage.passwordInput.getStyleProperty('cursor')).eql('text');
+
+
+    await t.hover(loginPage.rememberMeCheckbox);
+    await t.expect(loginPage.rememberMeCheckbox.getStyleProperty('cursor')).eql('pointer');
+
+    await t.hover(loginPage.submitButton);
+    await t.expect(loginPage.submitButton.getStyleProperty('cursor')).eql('pointer');
+
+});
+
 
