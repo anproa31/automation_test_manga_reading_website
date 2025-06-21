@@ -1,4 +1,4 @@
-import LoginPage from '../pages/LoginPage';
+import LoginPage from './pages/LoginPage';
 import {
     VALID_USERNAME,
     VALID_PASSWORD,
@@ -13,7 +13,7 @@ import {
     VALID_EMAIL,
     SQL_INJECTION_STRING,
     ACCOUNT_LOCKED_ERROR
-} from '../data/testData';
+} from './data/testData';
 import { Selector, ClientFunction, Role } from 'testcafe';
 
 const loginPage = new LoginPage();

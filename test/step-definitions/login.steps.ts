@@ -1,6 +1,6 @@
 import { Given, When, Then, Before, After, setWorldConstructor, World } from '@cucumber/cucumber';
 import { Selector, ClientFunction, Role } from 'testcafe';
-import LoginPage from '../ui/pages/LoginPage';
+import LoginPage from '../ui/auth/pages/LoginPage';
 import {
     VALID_USERNAME,
     VALID_PASSWORD,
@@ -15,7 +15,7 @@ import {
     VALID_EMAIL,
     SQL_INJECTION_STRING,
     ACCOUNT_LOCKED_ERROR
-} from '../ui/data/testData';
+} from '../ui/auth/data/testData';
 
 // Custom World class to hold TestCafe test controller
 class CustomWorld extends World {
