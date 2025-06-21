@@ -69,7 +69,7 @@ export class CucumberHtmlReporter {
         metadata: {
             "App Version": "1.0.0",
             "Test Environment": "STAGING",
-            "Browser": "Firefox",
+            "Browser": "Chrome",
             "Platform": "Windows 10",
             "Parallel": "Scenarios",
             "Executed": "Remote"
