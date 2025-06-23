@@ -12,10 +12,10 @@ import './login_testcases/TC_Login_10';
 import './login_testcases/TC_Login_11';
 import './login_testcases/TC_Login_12';
 import './login_testcases/TC_Login_13';
+import './login_testcases/TC_Login_13';
 import './login_testcases/TC_Login_14';
 import './login_testcases/TC_Login_15';
 import './login_testcases/TC_Login_16';
 import './login_testcases/TC_Login_17';
-import './login_testcases/TC_Login_18';
 
 

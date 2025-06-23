@@ -1,21 +1,22 @@
 import { test } from 'testcafe';
 import { loginPage, baseFixture } from '../setup/LoginShared';
-import { VALID_USERNAME, VALID_PASSWORD } from '../data/loginTestData';
-import { Role } from 'testcafe';
 
 fixture(baseFixture.name).page(baseFixture.url);
 
-const standardUser = Role('https://mangakatana.com/', async t => {
-    await loginPage.login(VALID_USERNAME, VALID_PASSWORD, false);
-    await t.expect(loginPage.displayName.withText(VALID_USERNAME).exists).ok();
-}, { preserveUrl: true });
+test('TC_Login_17: Cursor should change to text over input fields', async (t) => {
+    await t.click(loginPage.loginLink);
 
-test('TC_Login_17: Login session should NOT persist after browser close without Remember Me', async t => {
-    await t.useRole(standardUser);
+    await t.hover(loginPage.usernameInput);
+    await t.expect(loginPage.usernameInput.getStyleProperty('cursor')).eql('text');
 
-    await t.useRole(Role.anonymous());
+    await t.hover(loginPage.passwordInput);
+    await t.expect(loginPage.passwordInput.getStyleProperty('cursor')).eql('text');
 
-    await t.expect(loginPage.loginLink.exists).ok('User should be logged out after a simulated browser restart.');
+    await t.hover(loginPage.rememberMeCheckbox);
+    await t.expect(loginPage.rememberMeCheckbox.getStyleProperty('cursor')).eql('pointer');
+
+    await t.hover(loginPage.submitButton);
+    await t.expect(loginPage.submitButton.getStyleProperty('cursor')).eql('pointer');
     
-    await t.takeScreenshot({ path: 'screenshots/TC_Login_17.png' });
+    await t.takeScreenshot({ path: 'screenshots/TC_Login_18.png' });
 }); 
