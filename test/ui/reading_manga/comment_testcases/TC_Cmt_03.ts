@@ -19,7 +19,6 @@ test('TC_Cmt_03: Comment normal', async (t) => {
 
         .expect(commentPage.commentTextfield.exists)
         .ok('Comment textfield not found')
-        .debug()
         .typeText(commentPage.commentTextfield, testComment.comment)
 
         .click(commentPage.submitCommentBtn);

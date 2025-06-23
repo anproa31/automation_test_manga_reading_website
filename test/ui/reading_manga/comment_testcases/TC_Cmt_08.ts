@@ -18,7 +18,6 @@ test('TC_Cmt_08: Comment XSS Payload', async (t) => {
 
         .expect(commentPage.commentTextfield.exists)
         .ok('Comment textfield not found')
-        .debug()
         .typeText(commentPage.commentTextfield, xssPayload)
 
         .click(commentPage.submitCommentBtn);
