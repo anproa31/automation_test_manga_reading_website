@@ -1,22 +1,21 @@
 import { test } from 'testcafe';
 import { loginPage, baseFixture } from '../setup/LoginShared';
-import { ClientFunction } from 'testcafe';
+import { VALID_USERNAME, INVALID_PASSWORD } from '../data/loginTestData';
 
 fixture(baseFixture.name).page(baseFixture.url);
 
-test('TC_Login_13: Tab order should be correct on the login form', async (t) => {
-    await t
-        .click(loginPage.loginLink)
-        .click(loginPage.usernameInput);
+test('TC_Login_13: Multiple failed login attempts should lock account', async (t) => {
+    await t.click(loginPage.loginLink);
 
-    const getActiveElementId = ClientFunction(() => document.activeElement ? document.activeElement.id : '');
-    const getActiveElementText = ClientFunction(() => document.activeElement ? document.activeElement.textContent : '');
+    for (let i = 0; i < 10; i++) {
+        await t
+            .typeText(loginPage.usernameInput, VALID_USERNAME, { replace: true })
+            .typeText(loginPage.passwordInput, INVALID_PASSWORD, { replace: true })
+            .click(loginPage.submitButton);
+    }
 
-    await t.pressKey('tab');
-    await t.expect(getActiveElementId()).eql('pwd', 'Tabbing from username should focus on the password field.');
-
-    await t.pressKey('tab');
-    await t.expect(getActiveElementText()).contains('Log In', 'Tabbing from password should focus on the Log In button.');
+    await t.expect(loginPage.accountLockedMessage.exists)
+        .ok('The account was not locked after 10 failed login attempts.');
     
-    await t.takeScreenshot({ path: 'screenshots/TC_Login_13.png' });
+    await t.takeScreenshot({ path: 'screenshots/TC_Login_14.png' });
 }); 
