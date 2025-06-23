@@ -46,7 +46,7 @@ async function runTestsWithCucumberReport() {
     try {
         const failedCount = await runner
             .src('test/ui/auth/login.spec.ts')
-            .browsers('firefox:headless')
+            .browsers('chrome:headless')
             .reporter('json', 'reports/testcafe-report.json')
             .run({
                 stopOnFirstFail: false,
