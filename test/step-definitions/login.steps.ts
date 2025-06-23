@@ -15,7 +15,7 @@ import {
     VALID_EMAIL,
     SQL_INJECTION_STRING,
     ACCOUNT_LOCKED_ERROR
-} from '../ui/auth/data/testData';
+} from '../ui/auth/data/loginTestData';
 
 // Custom World class to hold TestCafe test controller
 class CustomWorld extends World {
