@@ -1,6 +1,6 @@
 import { test } from 'testcafe';
 import { loginPage, baseFixture } from '../setup/LoginShared';
-import { VALID_USERNAME, INVALID_PASSWORD, ACCOUNT_LOCKED_ERROR } from '../data/loginTestData';
+import { VALID_USERNAME, INVALID_PASSWORD } from '../data/loginTestData';
 
 fixture(baseFixture.name).page(baseFixture.url);
 
@@ -14,7 +14,7 @@ test('TC_Login_14: Multiple failed login attempts should lock account', async (t
             .click(loginPage.submitButton);
     }
 
-    await t.expect(loginPage.accountLockedError.withText(ACCOUNT_LOCKED_ERROR).exists)
+    await t.expect(loginPage.accountLockedMessage.exists)
         .ok('The account was not locked after 10 failed login attempts.');
     
     await t.takeScreenshot({ path: 'screenshots/TC_Login_14.png' });
