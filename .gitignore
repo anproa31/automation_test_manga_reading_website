@@ -3,3 +3,5 @@ node_modules
 reports/
 screenshots/
 
+/debug.test.ts
+/example.test.ts
