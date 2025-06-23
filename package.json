@@ -23,6 +23,7 @@
     "testcafe": "^3.7.2"
   },
   "devDependencies": {
+    "@cucumber/cucumber": "^11.3.0",
     "@types/node": "^22.15.29",
     "typescript": "^5.8.3"
   }
