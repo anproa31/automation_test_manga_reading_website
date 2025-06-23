@@ -38,8 +38,12 @@ export default class LoginPage {
     }
 
     async login(username: string, password: string, rememberMe = false) {
+        await t.click(this.loginLink);
+        await this.fillLoginFormAndSubmit(username, password, rememberMe);
+    }
+
+    async fillLoginFormAndSubmit(username: string, password: string, rememberMe = false) {
         await t
-            .click(this.loginLink)
             .typeText(this.usernameInput, username)
             .typeText(this.passwordInput, password);
 
