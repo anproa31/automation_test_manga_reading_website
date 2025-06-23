@@ -1,6 +1,5 @@
 import { test } from 'testcafe';
-import { signUpPage, baseFixture } from '../setup/SignUpShared';
-import { TestUser } from '../data/signUpTestData';
+import { signUpPage, baseFixture , TestUser} from '../setup/SignUpShared';
 
 fixture(baseFixture.name).page(baseFixture.url);
 
