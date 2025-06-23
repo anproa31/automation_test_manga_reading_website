@@ -13,6 +13,11 @@ export default class LoginPage {
     loadingSpinner: Selector;
     rememberMeCheckbox: Selector;
 
+    usernameRequiredMessage: Selector;
+    passwordRequiredMessage: Selector;
+    invalidCredentialsMessage: Selector;
+    accountLockedMessage: Selector;
+
     constructor() {
         this.loginLink = Selector('a[data-form="signin"]').withText('Log In');
         this.usernameInput = Selector('#user_login');
@@ -25,6 +30,11 @@ export default class LoginPage {
         this.accountLockedError = Selector('div.uk-alert-danger');
         this.loadingSpinner = Selector('i.uk-icon-spinner.uk-icon-spin');
         this.rememberMeCheckbox = Selector('label[for="remember"]');
+
+        this.usernameRequiredMessage = Selector('#modal_form').withText('Username is required!');
+        this.passwordRequiredMessage = Selector('#modal_form').withText('Password is required!');
+        this.invalidCredentialsMessage = Selector('#modal_form').withText('Username or password incorrect!');
+        this.accountLockedMessage = Selector('#modal_form').withText('Too many failed login attempts. Your account has been temporarily locked.');
     }
 
     async login(username: string, password: string, rememberMe = false) {
