@@ -321,4 +321,11 @@ This project is licensed under the ISC License.
 
 ---
 
-**Happy Testing! 🎉** 
+## Setting Up Test Data
+
+1. Copy the example data files:
+   ```sh
+   cp -r test/ui/auth/data-example/* test/ui/auth/data/
+   ```
+2. Edit the files in `test/ui/auth/data/` to include your own test accounts, emails, and passwords.
+   **Do not commit these files to git.** 
