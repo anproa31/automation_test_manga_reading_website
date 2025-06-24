@@ -1,1 +1,9 @@
 node_modules
+.idea
+reports/
+screenshots/
+
+/debug.test.ts
+/example.test.ts
+
+test/ui/auth/data/

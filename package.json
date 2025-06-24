@@ -3,15 +3,18 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-
   "scripts": {
     "compile": "tsc",
-    "test": "testcafe firefox test/specs/**/*.ts",
-    "test:compile": "tsc && testcafe firefox dist/specs/**/*.js",
-    "test:headless": "testcafe firefox:headless test/specs/**/*.ts",
-    "test:watch": "testcafe -L firefox test/specs/**/*.ts"
+    "test": "testcafe chrome test/specs/**/*.ts",
+    "test:compile": "tsc && testcafe chrome dist/specs/**/*.js",
+    "test:headless": "testcafe chrome:headless test/specs/**/*.ts",
+    "test:watch": "testcafe -L chrome test/specs/**/*.ts",
+    "cucumber": "cucumber-js",
+    "cucumber:report": "npm run cucumber && npm run generate-report",
+    "generate-report": "ts-node test/reporters/cucumber-html-reporter.ts",
+    "test:with-report": "testcafe chrome:headless test/ui/auth/login.spec.ts --reporter json:reports/testcafe-report.json && npm run generate-report",
+    "run-cucumber-tests": "ts-node test/run-tests-with-cucumber-report.ts"
   },
-
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -20,6 +23,7 @@
     "testcafe": "^3.7.2"
   },
   "devDependencies": {
+    "@cucumber/cucumber": "^11.3.0",
     "@types/node": "^22.15.29",
     "typescript": "^5.8.3"
   }
