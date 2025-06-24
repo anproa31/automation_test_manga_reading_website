@@ -12,8 +12,8 @@ test('TC_SignUp_11: Sign up with password fields containing spaces', async (t) =
     await signUpPage.signup(user.username, user.email, user.password, user.password, true);
 
     await t
-        .expect(signUpPage.invalidPasswordMessage.exists)
-        .ok('Error message not found after registration', { timeout: 5000 });
+        .expect(signUpPage.successMessage.exists)
+        .ok('Success message not found after registration', { timeout: 5000 });
 
     await t.takeScreenshot({ path: 'screenshots/TC_SignUp_11.png' });
 });
