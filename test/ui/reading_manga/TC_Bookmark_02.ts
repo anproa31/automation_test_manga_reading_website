@@ -23,7 +23,7 @@ async function getFirstChapterUrl() {
     return href;
 }
 
-fixture`Comment & bookmark` .beforeEach(async () => {
+fixture`BBookmark` .beforeEach(async () => {
     if(!href)
         href = await getFirstChapterUrl();
     });
